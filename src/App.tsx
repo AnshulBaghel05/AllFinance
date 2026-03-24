@@ -40,6 +40,7 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
 import NotFound from './pages/NotFound';
+import GetStarted from './pages/GetStarted';
 
 // --- Components ---
 
@@ -90,7 +91,7 @@ const Navbar = () => {
             </NavLink>
           ))}
           <Link 
-            to="/contact" 
+            to="/get-started" 
             className="bg-slate-900 text-white px-8 py-3.5 rounded-2xl text-sm font-bold shadow-2xl hover:bg-brand-600 transition-all hover:scale-105 active:scale-95"
           >
             Get Started
@@ -123,7 +124,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <Link 
-              to="/contact" 
+              to="/get-started" 
               onClick={() => setIsOpen(false)}
               className="bg-brand-600 text-white px-8 py-4 rounded-2xl text-center font-bold text-lg shadow-xl"
             >
@@ -251,6 +252,7 @@ export default function App() {
               <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
               <Route path="/faq" element={<PageTransition><FAQ /></PageTransition>} />
               <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+              <Route path="/get-started" element={<PageTransition><GetStarted /></PageTransition>} />
               {/* Fallback */}
               <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
             </Routes>

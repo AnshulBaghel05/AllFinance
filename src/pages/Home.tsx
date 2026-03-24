@@ -78,8 +78,8 @@ const Home = () => {
               Experience the next generation of wealth management. Transparent, expert-led, and powered by intelligent tools.
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <Link to="/contact" className="bg-brand-600 text-white px-10 py-5 rounded-full font-bold shadow-2xl shadow-brand-500/40 hover:bg-brand-700 transition-all flex items-center justify-center gap-3 group text-lg">
-                Get Free Consultation
+              <Link to="/get-started" className="bg-brand-600 text-white px-10 py-5 rounded-full font-bold shadow-2xl shadow-brand-500/40 hover:bg-brand-700 transition-all flex items-center justify-center gap-3 group text-lg">
+                Get Started Now
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link to="/services" className="bg-white/80 backdrop-blur-md text-slate-900 px-10 py-5 rounded-full font-bold shadow-lg border border-slate-200 hover:bg-white transition-all flex items-center justify-center gap-3 text-lg">
@@ -496,8 +496,8 @@ const Home = () => {
               Book your free 30-minute consultation with our senior advisors and receive a personalized financial roadmap.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Link to="/contact" className="bg-white text-brand-600 px-12 py-6 rounded-full font-bold text-xl shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
-                Book Free Consultation <Calendar size={24} />
+              <Link to="/get-started" className="bg-white text-brand-600 px-12 py-6 rounded-full font-bold text-xl shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
+                Get Started Today <Calendar size={24} />
               </Link>
               <Link to="/calculators" className="bg-brand-700 text-white px-12 py-6 rounded-full font-bold text-xl shadow-xl hover:bg-brand-800 transition-all flex items-center justify-center gap-3">
                 Try Calculators <Calculator size={24} />

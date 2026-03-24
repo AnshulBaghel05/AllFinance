@@ -94,12 +94,15 @@ const Pricing = () => {
                   </div>
                 ))}
               </div>
-              <button className={cn(
-                "w-full py-5 rounded-2xl font-bold text-lg shadow-xl transition-all",
-                plan.popular ? "bg-brand-600 text-white hover:bg-brand-700 shadow-brand-500/30" : "bg-slate-900 text-white hover:bg-slate-800"
-              )}>
+              <Link 
+                to="/get-started"
+                className={cn(
+                  "w-full py-5 rounded-2xl font-bold text-lg shadow-xl transition-all text-center flex items-center justify-center",
+                  plan.popular ? "bg-brand-600 text-white hover:bg-brand-700 shadow-brand-500/30" : "bg-slate-900 text-white hover:bg-slate-800"
+                )}
+              >
                 Choose {plan.title}
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>

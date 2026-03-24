@@ -46,7 +46,7 @@ const ServiceDetail = ({ title, icon, desc, features, img, reverse = false, id }
             </div>
           ))}
         </div>
-        <Link to="/contact" className="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all inline-flex items-center gap-3 shadow-xl">
+        <Link to="/get-started" className="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all inline-flex items-center gap-3 shadow-xl">
           Get Started <ArrowRight size={20} />
         </Link>
       </motion.div>
@@ -150,8 +150,8 @@ const Services = () => {
           <p className="text-slate-400 text-xl mb-14 max-w-2xl mx-auto font-medium leading-relaxed">
             Every financial journey is unique. Let's build a plan that matches your specific goals and risk tolerance.
           </p>
-          <Link to="/contact" className="bg-brand-600 text-white px-12 py-6 rounded-full font-bold text-xl shadow-2xl hover:bg-brand-700 transition-all flex items-center justify-center gap-3 inline-flex">
-            Book Free Consultation <ArrowRight size={24} />
+          <Link to="/get-started" className="bg-brand-600 text-white px-12 py-6 rounded-full font-bold text-xl shadow-2xl hover:bg-brand-700 transition-all flex items-center justify-center gap-3 inline-flex">
+            Get Started Now <ArrowRight size={24} />
           </Link>
         </div>
       </section>
