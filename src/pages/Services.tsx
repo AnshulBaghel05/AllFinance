@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card3D } from '../components/3DComponents';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 import { cn } from '../lib/utils';
 
 const ServiceDetail = ({ title, icon, desc, features, img, reverse = false, id }: { title: string; icon: React.ReactNode; desc: string; features: string[]; img: string; reverse?: boolean; id: string }) => (
@@ -58,12 +59,13 @@ const ServiceDetail = ({ title, icon, desc, features, img, reverse = false, id }
         className={cn("order-1 lg:order-2", reverse && "lg:order-1")}
       >
         <Card3D className="p-0 overflow-hidden rounded-[3rem] shadow-3xl border-8 border-white">
-          <img src={img} alt={title} className="w-full h-full object-cover aspect-square" referrerPolicy="no-referrer" />
+          <ImageWithFallback src={img} alt={title} className="w-full h-full object-cover aspect-square" />
         </Card3D>
       </motion.div>
     </div>
   </section>
 );
+
 
 const Services = () => {
   return (

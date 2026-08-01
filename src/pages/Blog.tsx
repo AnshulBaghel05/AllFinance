@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card3D } from '../components/3DComponents';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 import { cn } from '../lib/utils';
 
 const Blog = () => {
@@ -82,11 +83,12 @@ const Blog = () => {
               className="bg-white rounded-[2.5rem] overflow-hidden shadow-lg border border-slate-100 group flex flex-col h-full"
             >
               <div className="aspect-video overflow-hidden relative">
-                <img src={post.img} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
-                <div className="absolute top-6 left-6 bg-brand-600 text-white px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest shadow-lg">
+                <ImageWithFallback src={post.img} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute top-6 left-6 bg-brand-600 text-white px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest shadow-lg z-10">
                   {post.category}
                 </div>
               </div>
+
               <div className="p-10 flex flex-col flex-grow">
                 <div className="flex justify-between items-center mb-6 text-xs text-slate-400 font-bold uppercase tracking-widest">
                   <span className="flex items-center gap-2"><BookOpen size={14} /> 5 min read</span>

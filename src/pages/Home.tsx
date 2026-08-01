@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card3D, FloatingElement } from '../components/3DComponents';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 import { cn } from '../lib/utils';
 
 const SectionHeader = ({ title, subtitle, centered = true }: { title: string; subtitle?: string; centered?: boolean }) => (
@@ -89,9 +90,15 @@ const Home = () => {
 
             <div className="mt-16 flex items-center gap-8">
               <div className="flex -space-x-4">
-                {[1,2,3,4,5].map(i => (
-                  <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden shadow-md">
-                    <img src={`https://i.pravatar.cc/150?img=${i+20}`} alt="User" referrerPolicy="no-referrer" />
+                {[
+                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+                  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80"
+                ].map((avatar, i) => (
+                  <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden shadow-md shrink-0">
+                    <ImageWithFallback src={avatar} alt={`Client ${i+1}`} className="w-full h-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -305,7 +312,7 @@ const Home = () => {
 
       {/* About Preview */}
       <section className="py-32 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
+        <div className="absolute inset-0 bg-radial from-brand-900/40 via-slate-900/90 to-slate-950 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <motion.div
@@ -315,11 +322,10 @@ const Home = () => {
               className="relative"
             >
               <div className="aspect-square rounded-[3rem] overflow-hidden shadow-3xl border-8 border-slate-800">
-                <img 
+                <ImageWithFallback 
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1000&q=80" 
-                  alt="Founder" 
+                  alt="David Sterling - Founder & CEO" 
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="absolute -bottom-10 -right-10 glass-card bg-brand-600/90 border-brand-500/50 p-10 rounded-[2.5rem] shadow-2xl max-w-xs">
@@ -378,9 +384,9 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { name: 'Sarah Johnson', role: 'Business Owner', text: 'AllFinance helped me optimize my business taxes and set up a robust retirement plan. Their transparency is unmatched in this industry.', img: '22' },
-              { name: 'Michael Chen', role: 'Software Engineer', text: 'The SIP calculator and personalized investment advice helped me double my portfolio in just 3 years. The onboarding was incredibly smooth.', img: '33' },
-              { name: 'Elena Rodriguez', role: 'Medical Professional', text: 'I finally feel in control of my finances. Their goal-based planning made it easy to save for my children\'s education without stress.', img: '44' },
+              { name: 'Sarah Johnson', role: 'Business Owner', text: 'AllFinance helped me optimize my business taxes and set up a robust retirement plan. Their transparency is unmatched in this industry.', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80' },
+              { name: 'Michael Chen', role: 'Software Engineer', text: 'The SIP calculator and personalized investment advice helped me double my portfolio in just 3 years. The onboarding was incredibly smooth.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80' },
+              { name: 'Elena Rodriguez', role: 'Medical Professional', text: 'I finally feel in control of my finances. Their goal-based planning made it easy to save for my children\'s education without stress.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80' },
             ].map((t, i) => (
               <motion.div 
                 key={i}
@@ -398,8 +404,8 @@ const Home = () => {
                 </div>
                 <p className="text-slate-700 text-lg italic mb-10 leading-relaxed">"{t.text}"</p>
                 <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-2xl bg-slate-200 overflow-hidden shadow-inner">
-                    <img src={`https://i.pravatar.cc/150?img=${t.img}`} alt={t.name} referrerPolicy="no-referrer" />
+                  <div className="w-14 h-14 rounded-2xl bg-slate-200 overflow-hidden shadow-inner shrink-0">
+                    <ImageWithFallback src={t.img} alt={t.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h5 className="font-display font-bold text-slate-900 text-lg">{t.name}</h5>
@@ -435,18 +441,18 @@ const Home = () => {
               <motion.div 
                 key={i}
                 whileHover={{ y: -10 }}
-                className="bg-white rounded-[2.5rem] overflow-hidden shadow-lg border border-slate-100 group"
+                className="bg-white rounded-[2.5rem] overflow-hidden shadow-lg border border-slate-100 group flex flex-col h-full"
               >
                 <div className="aspect-video overflow-hidden">
-                  <img src={post.img} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <ImageWithFallback src={post.img} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
-                <div className="p-8">
+                <div className="p-8 flex flex-col flex-grow">
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-xs font-black uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full">{post.category}</span>
                     <span className="text-xs text-slate-400 font-bold">{post.date}</span>
                   </div>
                   <h4 className="text-xl font-display font-bold text-slate-900 mb-6 group-hover:text-brand-600 transition-colors">{post.title}</h4>
-                  <Link to="/blog" className="flex items-center gap-2 text-sm font-bold text-slate-500 group-hover:text-brand-600 transition-all">
+                  <Link to="/blog" className="flex items-center gap-2 text-sm font-bold text-slate-500 group-hover:text-brand-600 transition-all mt-auto">
                     Read Article <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -455,6 +461,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
 
       {/* Security & Compliance */}
       <section className="py-24 bg-white border-y border-slate-100">
@@ -483,8 +490,8 @@ const Home = () => {
 
       {/* Final CTA Section */}
       <section className="py-32 px-6 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto bg-brand-600 rounded-[4rem] p-16 md:p-24 text-center text-white relative shadow-3xl">
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+        <div className="max-w-7xl mx-auto bg-brand-600 rounded-[4rem] p-16 md:p-24 text-center text-white relative shadow-3xl overflow-hidden">
+          <div className="absolute inset-0 bg-radial from-brand-500/50 via-transparent to-brand-800/40 pointer-events-none" />
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

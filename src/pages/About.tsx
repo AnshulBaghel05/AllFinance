@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Card3D } from '../components/3DComponents';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 import { cn } from '../lib/utils';
 
 const About = () => {
@@ -66,9 +67,14 @@ const About = () => {
           </div>
           <div className="relative">
             <Card3D className="p-0 overflow-hidden rounded-[3rem] shadow-3xl border-8 border-white">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Team" className="w-full h-full object-cover aspect-square" referrerPolicy="no-referrer" />
+              <ImageWithFallback 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                alt="AllFinance Team" 
+                className="w-full h-full object-cover aspect-square" 
+              />
             </Card3D>
           </div>
+
         </div>
       </section>
 
@@ -109,19 +115,20 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { name: 'David Sterling', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80' },
-              { name: 'Sarah Jenkins', role: 'Chief Investment Officer', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80' },
-              { name: 'Michael Ross', role: 'Head of Wealth Management', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80' },
+              { name: 'David Sterling', role: 'Founder & CEO', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80' },
+              { name: 'Sarah Jenkins', role: 'Chief Investment Officer', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80' },
+              { name: 'Michael Ross', role: 'Head of Wealth Management', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80' },
             ].map((member, i) => (
               <div key={i} className="group">
                 <div className="aspect-square rounded-[2.5rem] overflow-hidden mb-8 shadow-xl border-4 border-slate-50 group-hover:border-brand-600 transition-all duration-500">
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                  <ImageWithFallback src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
                 <h4 className="text-2xl font-display font-bold text-slate-900 mb-2">{member.name}</h4>
                 <p className="text-brand-600 font-bold uppercase tracking-widest text-xs">{member.role}</p>
               </div>
             ))}
           </div>
+
         </div>
       </section>
     </div>
